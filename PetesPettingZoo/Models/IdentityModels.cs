@@ -23,6 +23,8 @@ namespace PetesPettingZoo.Models
         public DbSet<OpenDays> Days { get; set; }
         public DbSet<Tickets> Tickets { get; set; }
         public DbSet<Customers>Customers { get; set; }
+        public DbSet<Animal> Animals { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
