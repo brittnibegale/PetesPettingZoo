@@ -198,18 +198,51 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpenDaysController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710231719095_first add.cs" />
-    <Compile Include="Migrations\201710231726188_first migration.cs" />
-    <Compile Include="Migrations\201710231726188_first migration.Designer.cs">
-      <DependentUpon>201710231726188_first migration.cs</DependentUpon>
+
+
+    <Compile Include="Migrations\201710231518137_first migration.cs" />
+    <Compile Include="Migrations\201710231518137_first migration.Designer.cs">
+      <DependentUpon>201710231518137_first migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231547090_added day model.cs" />
+    <Compile Include="Migrations\201710231547090_added day model.Designer.cs">
+      <DependentUpon>201710231547090_added day model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231555475_add openday.cs" />
+    <Compile Include="Migrations\201710231555475_add openday.Designer.cs">
+      <DependentUpon>201710231555475_add openday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231600137_add opendays table.cs" />
+    <Compile Include="Migrations\201710231600137_add opendays table.Designer.cs">
+      <DependentUpon>201710231600137_add opendays table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231600566_add opendays info.cs" />
+    <Compile Include="Migrations\201710231600566_add opendays info.Designer.cs">
+      <DependentUpon>201710231600566_add opendays info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231612017_added tickets model.cs" />
+    <Compile Include="Migrations\201710231612017_added tickets model.Designer.cs">
+      <DependentUpon>201710231612017_added tickets model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231612324_add ticket data.cs" />
+    <Compile Include="Migrations\201710231612324_add ticket data.Designer.cs">
+      <DependentUpon>201710231612324_add ticket data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231644585_added customer table.cs" />
+    <Compile Include="Migrations\201710231644585_added customer table.Designer.cs">
+      <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OpenDays.cs" />
+    <Compile Include="Models\Tickets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -274,6 +307,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\OpenDays\Create.cshtml" />
+    <Content Include="Views\OpenDays\Delete.cshtml" />
+    <Content Include="Views\OpenDays\Details.cshtml" />
+    <Content Include="Views\OpenDays\Edit.cshtml" />
+    <Content Include="Views\OpenDays\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,8 +325,29 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710231726188_first migration.resx">
-      <DependentUpon>201710231726188_first migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710231518137_first migration.resx">
+      <DependentUpon>201710231518137_first migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231547090_added day model.resx">
+      <DependentUpon>201710231547090_added day model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231555475_add openday.resx">
+      <DependentUpon>201710231555475_add openday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231600137_add opendays table.resx">
+      <DependentUpon>201710231600137_add opendays table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231600566_add opendays info.resx">
+      <DependentUpon>201710231600566_add opendays info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231612017_added tickets model.resx">
+      <DependentUpon>201710231612017_added tickets model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231612324_add ticket data.resx">
+      <DependentUpon>201710231612324_add ticket data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231644585_added customer table.resx">
+      <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
