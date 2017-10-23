@@ -196,7 +196,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\CustomersController.cs" />
+=======
+    <Compile Include="Controllers\AnimalsController.cs" />
+>>>>>>> 67a0bba734eeb70c17975d001eb3c3210f6096c5
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpenDaysController.cs" />
@@ -236,8 +240,13 @@
     <Compile Include="Migrations\201710231644585_added customer table.Designer.cs">
       <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710231851325_added animal table.cs" />
+    <Compile Include="Migrations\201710231851325_added animal table.Designer.cs">
+      <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -312,6 +321,7 @@
     <Content Include="Views\OpenDays\Details.cshtml" />
     <Content Include="Views\OpenDays\Edit.cshtml" />
     <Content Include="Views\OpenDays\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Tickets\Create.cshtml" />
     <Content Include="Views\Tickets\Delete.cshtml" />
     <Content Include="Views\Tickets\Details.cshtml" />
@@ -322,6 +332,13 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+=======
+    <Content Include="Views\Animals\Create.cshtml" />
+    <Content Include="Views\Animals\Delete.cshtml" />
+    <Content Include="Views\Animals\Details.cshtml" />
+    <Content Include="Views\Animals\Edit.cshtml" />
+    <Content Include="Views\Animals\Index.cshtml" />
+>>>>>>> 67a0bba734eeb70c17975d001eb3c3210f6096c5
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710231644585_added customer table.resx">
       <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231851325_added animal table.resx">
+      <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
