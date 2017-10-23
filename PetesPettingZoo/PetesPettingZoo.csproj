@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpenDaysController.cs" />
@@ -234,8 +235,13 @@
     <Compile Include="Migrations\201710231644585_added customer table.Designer.cs">
       <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710231851325_added animal table.cs" />
+    <Compile Include="Migrations\201710231851325_added animal table.Designer.cs">
+      <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -310,6 +316,11 @@
     <Content Include="Views\OpenDays\Details.cshtml" />
     <Content Include="Views\OpenDays\Edit.cshtml" />
     <Content Include="Views\OpenDays\Index.cshtml" />
+    <Content Include="Views\Animals\Create.cshtml" />
+    <Content Include="Views\Animals\Delete.cshtml" />
+    <Content Include="Views\Animals\Details.cshtml" />
+    <Content Include="Views\Animals\Edit.cshtml" />
+    <Content Include="Views\Animals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710231644585_added customer table.resx">
       <DependentUpon>201710231644585_added customer table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231851325_added animal table.resx">
+      <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
