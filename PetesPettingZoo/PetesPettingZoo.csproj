@@ -208,6 +208,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+
+
     <Compile Include="Migrations\201710231518137_first migration.cs" />
     <Compile Include="Migrations\201710231518137_first migration.Designer.cs">
       <DependentUpon>201710231518137_first migration.cs</DependentUpon>
