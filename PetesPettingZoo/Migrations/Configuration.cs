@@ -22,6 +22,11 @@ namespace PetesPettingZoo.Migrations
                 new Animal { AnimalName = "Pancho", AnimalType = "Moon Bear", AtTheZoo = false },
                 new Animal { AnimalName = "Carlos", AnimalType = "Flamingo", AtTheZoo = true }
            );
+            context.Days.AddOrUpdate(
+                b => b.Day,
+                new OpenDays {Day = DateTime.Parse("10/28/2017") },
+                new OpenDays { Day = DateTime.Parse("10/29/17")}
+                );
         }
     }
 }
