@@ -12,6 +12,7 @@ namespace PetesPettingZoo
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            createRoleandUsers();
         }
         // In this method we will create a default user roles and admin user for login
         private void createRoleandUsers()
@@ -43,13 +44,7 @@ namespace PetesPettingZoo
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
                 }
             }
-            // creating creating manager role
-            if (!roleManager.RoleExists("Admin"))
-            {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Admin";
-                roleManager.Create(role);
-            }
+            
             // creating employee role
             if (!roleManager.RoleExists("Employee"))
             {
@@ -58,14 +53,6 @@ namespace PetesPettingZoo
                 roleManager.Create(role);
 
             }
-
-            
-
-              
-            
         }
-
-
     }
-
 }
