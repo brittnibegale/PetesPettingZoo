@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201710231851325_added animal table.Designer.cs">
       <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710241358442_display names on customers.cs" />
+    <Compile Include="Migrations\201710241358442_display names on customers.Designer.cs">
+      <DependentUpon>201710241358442_display names on customers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
@@ -373,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710231851325_added animal table.resx">
       <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710241358442_display names on customers.resx">
+      <DependentUpon>201710241358442_display names on customers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
