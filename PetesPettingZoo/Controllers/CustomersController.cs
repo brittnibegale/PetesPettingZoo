@@ -39,7 +39,7 @@ namespace PetesPettingZoo.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id");
+            ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Day");
             ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id");
             return View();
         }
@@ -49,10 +49,12 @@ namespace PetesPettingZoo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cost,Paid,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
         {
             if (ModelState.IsValid)
             {
+                customers.Cost = customers.TicketId * 7;
+                customers.Paid = false;
                 db.Customers.Add(customers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
