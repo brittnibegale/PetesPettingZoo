@@ -17,7 +17,8 @@ namespace PetesPettingZoo.Controllers
         // GET: Animals
         public ActionResult Index()
         {
-            return View(db.Animals.ToList());
+            var currentAnimals = db.Animals.Where(n => n.AtTheZoo == true).ToList();
+            return View(currentAnimals);
         }
 
         // GET: Animals/Details/5
