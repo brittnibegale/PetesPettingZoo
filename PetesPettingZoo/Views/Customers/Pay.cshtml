@@ -1,0 +1,35 @@
+﻿@model PetesPettingZoo.Models.ViewModels.TicketAmountViewModel
+@{
+    ViewBag.Title = "Pay";
+}
+
+<h2>Pay</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th></th>
+    </tr>
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Cost)
+        </td>
+    </tr>
+</table>
+<form action="Pay" method="POST">
+    <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_riWGeBTXPQsj0gyIV800mGB0"
+        data-amount="2000"
+        data-name="Yay the Zoo!"
+        data-description="Buy Tickets"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto">
+    </script>
+    @Html.HiddenFor(s=>s.FirstName)
+    @Html.HiddenFor(s=>s.Cost)
+</form>
+        
+
