@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PetesPettingZoo.Models;
+using Stripe;
 
 namespace PetesPettingZoo.Controllers
 {
@@ -49,7 +50,8 @@ namespace PetesPettingZoo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
+        public ActionResult Create(
+            [Bind(Include = "Id,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +89,8 @@ namespace PetesPettingZoo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cost,Paid,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
+        public ActionResult Edit(
+            [Bind(Include = "Id,Cost,Paid,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
         {
             if (ModelState.IsValid)
             {
@@ -126,7 +129,30 @@ namespace PetesPettingZoo.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        //public ActionResult Charge(string stripeEmail, string stripeToken)
+        //{
+        //    var customers = new StripeCustomerService();
+        //    var charges = new StripeChargeService();
+
+        //    var customer = customers.Create(new StripeCustomerCreateOptions
+        //    {
+        //        Email = stripeEmail,
+        //        SourceToken = stripeToken
+        //    });
+
+        //    var charge = charges.Create(new StripeChargeCreateOptions
+        //    {
+        //        Amount = /*TICKET COST IN $ */
+        //            System.Web.Services.Description = "Ticket Charge",
+        //        Currency = "Dollars",
+        //        CustomerId = customer.Id
+        //    });
+
+        //    return View();
+        //}
+
+
+protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
