@@ -19,12 +19,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Admin", "Index", "home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Add days", "Index", "Add days")</li>
-                        <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                        <li>@Html.ActionLink("Days", "Index", "Days")</li>
+                        <li>@Html.ActionLink("Add Employee", "Register", "Account")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
@@ -45,8 +45,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Tickets", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Animals", "Map", "Home")</li>
+                        <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                        <li>@Html.ActionLink("Animals", "Index", "Animals")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
