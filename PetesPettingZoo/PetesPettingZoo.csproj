@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpenDaysController.cs" />
@@ -241,21 +242,25 @@
     <Compile Include="Migrations\201710231851325_added animal table.Designer.cs">
       <DependentUpon>201710231851325_added animal table.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\201710241623280_adding user roles to aspnetroles.cs" />
     <Compile Include="Migrations\201710241623280_adding user roles to aspnetroles.Designer.cs">
       <DependentUpon>201710241623280_adding user roles to aspnetroles.cs</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="Migrations\201710241358442_display names on customers.cs" />
     <Compile Include="Migrations\201710241358442_display names on customers.Designer.cs">
       <DependentUpon>201710241358442_display names on customers.cs</DependentUpon>
-
+    </Compile>
+    <Compile Include="Migrations\201710250834563_Employees .cs" />
+    <Compile Include="Migrations\201710250834563_Employees .Designer.cs">
+      <DependentUpon>201710250834563_Employees .cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\keyAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OpenDays.cs" />
     <Compile Include="Models\Tickets.cs" />
@@ -344,10 +349,14 @@
     <Content Include="Views\Animals\Edit.cshtml" />
     <Content Include="Views\Animals\Index.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\userscontroller\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -387,9 +396,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710241623280_adding user roles to aspnetroles.resx">
       <DependentUpon>201710241623280_adding user roles to aspnetroles.cs</DependentUpon>
-  </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710241358442_display names on customers.resx">
       <DependentUpon>201710241358442_display names on customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710250834563_Employees .resx">
+      <DependentUpon>201710250834563_Employees .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
