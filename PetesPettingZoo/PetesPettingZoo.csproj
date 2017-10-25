@@ -209,6 +209,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JetMail.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpenDaysController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
