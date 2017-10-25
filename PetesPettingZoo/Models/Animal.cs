@@ -14,7 +14,7 @@ namespace PetesPettingZoo.Models
         public string AnimalName { get; set; }
         [Display(Name = "Type of Animal")]
         public string AnimalType { get; set; }
-        [Display(Name = "Is this Animal at the Petting Zoo?")]
+        [Display(Name = "Show at the Petting Zoo?")]
         public bool AtTheZoo { get; set; }
     }
 }
