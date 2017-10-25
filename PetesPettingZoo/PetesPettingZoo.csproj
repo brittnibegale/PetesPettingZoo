@@ -208,7 +208,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpenDaysController.cs" />
@@ -264,11 +263,14 @@
     <Compile Include="Migrations\201710250834563_Employees .Designer.cs">
       <DependentUpon>201710250834563_Employees .cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710251632561_deleted employee model.cs" />
+    <Compile Include="Migrations\201710251632561_deleted employee model.Designer.cs">
+      <DependentUpon>201710251632561_deleted employee model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Customers.cs" />
-    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\keyAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -364,11 +366,6 @@
     <Content Include="Views\Customers\Stripe.cshtml" />
     <Content Include="Views\Shared\Stripe.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
-    <Content Include="Views\Employees\Create.cshtml" />
-    <Content Include="Views\Employees\Delete.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710250834563_Employees .resx">
       <DependentUpon>201710250834563_Employees .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251632561_deleted employee model.resx">
+      <DependentUpon>201710251632561_deleted employee model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

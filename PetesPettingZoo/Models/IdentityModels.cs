@@ -25,7 +25,6 @@ namespace PetesPettingZoo.Models
 
         public DbSet<Customers>Customers { get; set; }
         public DbSet<Animal> Animals { get; set; }
-        public DbSet<Employee> Employees { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
