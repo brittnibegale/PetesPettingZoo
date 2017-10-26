@@ -23,7 +23,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Days", "Index", "Days")</li>
+                        <li>@Html.ActionLink("Add Days", "index", "OpenDays")</li>
                         <li>@Html.ActionLink("Add Employee", "Register", "Account")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
@@ -45,8 +45,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
-                        <li>@Html.ActionLink("Animals", "Index", "Animals")</li>
+                        <li>@Html.ActionLink("Today's tickets", "Index", "Tickets")</li>
+                        <li>@Html.ActionLink("Change animals", "Create", "Animals")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>

@@ -18,8 +18,9 @@ namespace PetesPettingZoo.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = db.Customers.Include(c => c.OpenDay).Include(c => c.Ticket);
-            return View(customers.ToList());
+            var potenitalCustomers = db.Customers.Where(m => m.OpenDays.GroupBy(c)
+            // find the customers that will be coming today and that have paid
+            return View();
         }
 
         // GET: Customers/Details/5
@@ -128,6 +129,7 @@ namespace PetesPettingZoo.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         //public ActionResult Charge(string stripeEmail, string stripeToken)
         //{
