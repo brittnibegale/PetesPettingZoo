@@ -3,16 +3,27 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using PetesPettingZoo.Models;
+using Stripe;
 
 [assembly: OwinStartupAttribute(typeof(PetesPettingZoo.Startup))]
 namespace PetesPettingZoo
 {
     public partial class Startup
     {
+
+
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
             createRoleandUsers();
+
+        }
+
+      
+        public class StripeSettings
+        {
+            public string SecretKey { get; set; }
+            public string PublishableKey { get; set; }
         }
         // In this method we will create a default user roles and admin user for login
         private void createRoleandUsers()

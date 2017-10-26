@@ -15,4 +15,43 @@
             data-description="Ticket Charge"
             data-amount="@*AMOUNT*@">
     </script>
-</form>
+</formnamespace Mailjet.ConsoleApplication
+{
+   class Program
+   {
+      /// <summary>
+    /// View : List of contacts with Limit and Offset, retrieves a list of 150 contacts starting with the 25000th contact
+    ///
+</summary>
+      static void Main(string[] args)
+      {
+         RunAsync().Wait();
+      }
+      static async Task RunAsync()
+      {
+         MailjetClient client = new MailjetClient(Environment.GetEnvironmentVariable("MJ_APIKEY_PUBLIC"), Environment.GetEnvironmentVariable("MJ_APIKEY_PRIVATE"));
+         MailjetRequest request = new MailjetRequest
+         {
+            Resource = Contact.Resource,
+         }
+         .Filter(Contact.Limit, "150")
+         .Filter(Contact.Offset, "25000");
+         MailjetResponse response = await client.GetAsync(request);
+         if (response.IsSuccessStatusCode)
+         {
+            Console.WriteLine(string.Format("Total: {0}, Count: {1}\n", response.GetTotal(), response.GetCount()));
+            Console.WriteLine(response.GetData());
+         }
+         else
+         {
+            Console.WriteLine(string.Format("StatusCode: {0}\n", response.StatusCode));
+            Console.WriteLine(string.Format("ErrorInfo: {0}\n", response.GetErrorInfo()));
+            Console.WriteLine(response.GetData());
+            Console.WriteLine(string.Format("ErrorMessage: {0}\n", response.GetErrorMessage()));
+         }
+      }
+   }
+}
+The Offset filter can be combined with the Limit filter.
+
+The Sort Filter

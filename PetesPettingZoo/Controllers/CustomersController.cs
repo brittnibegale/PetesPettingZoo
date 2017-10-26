@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PetesPettingZoo.Models;
+using PetesPettingZoo.Models.ViewModels;
 using Stripe;
 
 namespace PetesPettingZoo.Controllers
@@ -58,14 +59,37 @@ namespace PetesPettingZoo.Controllers
             {
                 customers.Cost = customers.TicketId * 7;
                 customers.Paid = false;
+              
+                
                 db.Customers.Add(customers);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Pay",customers);
             }
 
             ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
             ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id", customers.TicketId);
             return View(customers);
+        }
+
+        public ActionResult Pay(Customers customers)
+        {
+            var viewModel = new TicketAmountViewModel();
+            {
+                viewModel.Cost = customers.Cost;
+                viewModel.FirstName = customers.FirstName;
+            }
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Pay(TicketAmountViewModel viewModel)
+        {
+            var customers = db.Customers.Where(m => m.FirstName == viewModel.FirstName).First();
+            customers.Paid = true;
+            db.Entry(customers).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Customers/Edit/5

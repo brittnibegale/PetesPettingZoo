@@ -6,6 +6,8 @@ namespace PetesPettingZoo.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Net;
+    using System.Net.Mail;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PetesPettingZoo.Models.ApplicationDbContext>
     {
@@ -37,9 +39,18 @@ namespace PetesPettingZoo.Migrations
            );
             context.Days.AddOrUpdate(
                 b => b.Day,
-                new OpenDays {Day = DateTime.Parse("10/28/2017") },
-                new OpenDays { Day = DateTime.Parse("10/29/17")}
+                new OpenDays { Day = DateTime.Parse("10/28/2017") },
+                new OpenDays { Day = DateTime.Parse("10/29/17") }
                 );
+        }
+
+        public class MailJet
+        {
+            SmtpClient client = new SmtpClient("in.mailjet.com ")
+            {
+                Credentials = new NetworkCredential("MAILJET_API_KEY", "MAILJET_SECRET_KEY"),
+                EnableSsl = true
+            };
         }
     }
 }
