@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PetesPettingZoo.API_calls;
 using PetesPettingZoo.Models;
 using PetesPettingZoo.Models.ViewModels;
 using Stripe;
@@ -88,7 +89,18 @@ namespace PetesPettingZoo.Controllers
             customers.Paid = true;
             db.Entry(customers).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Confirmation");//this is where we need to redirect to the confirmation email page
+        }
+
+        public void getStaticMethod()
+        {
+            mailgunAPIcall.SendSimpleMessage();
+        }
+
+        public ActionResult Confirmation()
+        {
+            getStaticMethod();
+            return View();
         }
 
         // GET: Customers/Edit/5
