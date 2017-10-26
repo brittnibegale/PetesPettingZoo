@@ -18,9 +18,8 @@ namespace PetesPettingZoo.Controllers
         //GET: Customers
         public ActionResult Index()
         {
-           
-            var potenitalCustomers = db.Customers.Where(m => m.Paid != true && m.OpenDaysId == m.Id);
-            // find the customers that will be coming today and that have paid
+            var day = db.Days.Where(m => m.Day == DateTime.Today).Select(m => m.Id);           
+            var potenitalCustomers = db.Customers.Where(m => day.Contains(m.OpenDaysId)).ToList();
             return View(potenitalCustomers);
     }
 
@@ -130,30 +129,6 @@ namespace PetesPettingZoo.Controllers
         db.SaveChanges();
         return RedirectToAction("Index");
     }
-
-
-    //public ActionResult Charge(string stripeEmail, string stripeToken)
-    //{
-    //    var customers = new StripeCustomerService();
-    //    var charges = new StripeChargeService();
-
-    //    var customer = customers.Create(new StripeCustomerCreateOptions
-    //    {
-    //        Email = stripeEmail,
-    //        SourceToken = stripeToken
-    //    });
-
-    //    var charge = charges.Create(new StripeChargeCreateOptions
-    //    {
-    //        Amount = /*TICKET COST IN $ 
-    //            System.Web.Services.Description = "Ticket Charge",
-    //        Currency = "Dollars",
-    //        CustomerId = customer.Id
-    //    });
-
-    //    return View();
-    //}
-
 
     protected override void Dispose(bool disposing)
         {
