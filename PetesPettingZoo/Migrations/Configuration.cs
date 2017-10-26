@@ -48,7 +48,7 @@ namespace PetesPettingZoo.Migrations
         {
             SmtpClient client = new SmtpClient("in.mailjet.com ")
             {
-                Credentials = new NetworkCredential("MAILJET_API_KEY", "MAILJET_SECRET_KEY"),
+                Credentials = new NetworkCredential("", ""),
                 EnableSsl = true
             };
         }
