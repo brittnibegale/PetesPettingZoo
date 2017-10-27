@@ -4,36 +4,54 @@
 
 <div class="jumbotron">
     <h1>Pete's Petting Zoo</h1>
-    <p class="lead">Welcome to Pete's Petting Zoo! </p>
+    <p class="lead">Welcome!</p>
 </div>
+
+<@*script type="text/javascript" src=("@Url.Content="~/scripts/jquery-1.10-2.js")"></script>
+<script type="text/javascript" src=("@Url.Content ="~/scripts/jquery.unobtrusive-ajax.min.js")"></script>
+@Styles.Render("~/Content/css")*@
 
 <body>
     <img src="~/Content/image/alpaca.jpg" 
-    style="width:886px; height:506px;" />
+    style="width:886px; height:506px;"/>
 </body>
 
-@*pictures for timed slideshow*@
+@*<div id="="SlideshowImages">
+<div> <img src="/Content/image/alpaca.jpg" width:"886" height:"506"> </div>
+<div> <img src="/Content/image/flamingo.jpg" width:"900" height:"675"> </div>
+<div> <img src="/Content/image/emu.jpg" width:"700" height:"466"> </div>
+<div> <img src="/Content/image/cicada.jpg" width:"600" height:"400"> </div>
+<div> <img src="/Content/image/moonbear.jpg" width:"450" height:"600"> </div>
+<div> <img src="/Content/image/macaque.jpg" width:"920" height:"612"> </div>
+<div> <img src="/Content/image/dolphin.jpg" width:"1000" height:"667""> </div>
+</div>
 
-        @*<img src="~/Content/image/alpaca.jpg">
-        style="width:886px; height:506px;" />
+<style type="text/css" style="display: none !important;">
+    #SlideshowImages {
+        margin: 50px auto;
+        position: relative;
+        width: 600px;
+        height: 600px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
-        <img src="~/Content/image/flamingo.jpg">
-        style="width:900px; height:675px;" />
-        
-        <img src="~/Content/image/tigershark.jpg">
-        style="width:750px; height:499px;" />
+        #SlideshowImages > div {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+</style>
 
-        <img src="~/Content/image/emu.jpg">
-        style="width:700px; height:466px;" />
+<script type="text/javascript">
 
-        <img src="~/Content/image/cicada.jpg">
-        style="width:600px; height:400px;" />
-
-        <img src="~/Content/image/moonbear.jpg">
-        style="width:450px; height:600px;" />
-
-        <img src="~/Content/image/macaque.jpg">
-        style="width:920px; height:612px;" />
-
-        <img src="~/Content/image/dolphin.jpg">
-        style="width:1000px; height:667px;" />*@
+    $(document).ready(function()
+    {
+        $("#slideshow > div:gt(0)").hide();
+        setInterval(function()
+        {
+            $('#SlideshowImages > div:first').fadeOut(3000).next().fadeIn(3000).end().appendTo('#SlideshowImages');
+        }, 3000);
+    });
+</script>*@
