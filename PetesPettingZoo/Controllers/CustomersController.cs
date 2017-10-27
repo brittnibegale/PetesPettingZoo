@@ -81,17 +81,6 @@ namespace PetesPettingZoo.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-        ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
-        ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id", customers.TicketId);
-        return View(customers);
-
-
-    }
-=======
-     
->>>>>>> 6fcba9e0f06ffffccadc799326bd526012544b45
-
     // GET: Customers/Edit/5
     public ActionResult Edit(int? id)
     {
