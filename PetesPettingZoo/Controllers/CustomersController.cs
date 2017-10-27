@@ -78,6 +78,8 @@ namespace PetesPettingZoo.Controllers
         ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
         ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id", customers.TicketId);
         return View(customers);
+
+
     }
 
     // GET: Customers/Edit/5
