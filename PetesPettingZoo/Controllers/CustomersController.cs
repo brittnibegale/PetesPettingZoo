@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using PetesPettingZoo.API_calls;
 using PetesPettingZoo.Models;
 using Stripe;
+using PetesPettingZoo.Models.ViewModels;
 
 namespace PetesPettingZoo.Controllers
 {
@@ -62,7 +63,7 @@ namespace PetesPettingZoo.Controllers
                 db.Customers.Add(customers);
                 db.SaveChanges();
                 return
-                    RedirectToAction("Confirmation"); //this is where we need to redirect to the confirmation email page
+                    RedirectToAction("Pay", customers); 
             }
 
             ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
@@ -70,18 +71,37 @@ namespace PetesPettingZoo.Controllers
             return View(customers);
         }
 
+    
+        public ActionResult Pay(Customers customers)
+        {
+            var viewModel = new TicketAmountViewModel();
+               {
+                   viewModel.Cost = customers.Cost;
+                   viewModel.FirstName = customers.FirstName;
+               }
+            return View(viewModel);
+        }
+    
+           [HttpPost]
+           public ActionResult Pay(TicketAmountViewModel viewModel)
+           {
+               var customers = db.Customers.Where(m => m.FirstName == viewModel.FirstName).First();
+                customers.Paid = true;
+                db.Entry(customers).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Confirmation");
+           }       
         public void getStaticMethod()
         {
             mailgunAPIcall.SendSimpleMessage();
         }
 
+       
         public ActionResult Confirmation()
         {
             getStaticMethod();
             return View();
         }
-
-     
 
     // GET: Customers/Edit/5
     public ActionResult Edit(int? id)

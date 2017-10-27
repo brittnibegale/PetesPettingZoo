@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using PetesPettingZoo.API_calls;
 using PetesPettingZoo.Models;
+using PetesPettingZoo.Models.ViewModels;
 using RestSharp;
 
 namespace PetesPettingZoo.Controllers
@@ -21,9 +22,17 @@ namespace PetesPettingZoo.Controllers
         // GET: OpenDays
         public ActionResult Index()
         {
-            var weather = weatherapi.ApiCall();
+            List<string> weather = weatherapi.ApiCall();
+            List<OpenDays> days = db.Days.ToList();
+
+            var viewModel = new SchduleViewModel();
+            {
+                viewModel.Days = days;
+                viewModel.Weather = weather;
+            }
+
+            return View(viewModel);
             
-            return View(db.Days.ToList());
         }
 
         // GET: OpenDays/Details/5

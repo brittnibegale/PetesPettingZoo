@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PetesPettingZoo.Models.OpenDays>
+﻿@model PetesPettingZoo.Models.ViewModels.SchduleViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -9,14 +9,19 @@
 
 <table class="table">
 
-    @foreach (var item in Model) {
+    @foreach (var item in Model.Days) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Day)
+                @item.Day.Month / @item.Day.Day /@item.Day.Year
             </td>
         </tr>
     }
+    
+</table>
+<table>
+    <th>
+        Today's Weather : @Model.Weather[2];
+    </th>
+</table>
 
-</table>
-<h5>Hours of Operation: 8am - 7pm</h5>
-</table>
+<center><h5>Hours of Operation: 8am - 7pm</h5></center>
