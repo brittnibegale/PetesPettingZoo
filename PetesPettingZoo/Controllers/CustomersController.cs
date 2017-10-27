@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PetesPettingZoo.API_calls;
 using PetesPettingZoo.Models;
 using Stripe;
 
@@ -60,7 +61,18 @@ namespace PetesPettingZoo.Controllers
             customers.Paid = false;
             db.Customers.Add(customers);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Confirmation");//this is where we need to redirect to the confirmation email page
+        }
+
+        public void getStaticMethod()
+        {
+            mailgunAPIcall.SendSimpleMessage();
+        }
+
+        public ActionResult Confirmation()
+        {
+            getStaticMethod();
+            return View();
         }
 
         ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);

@@ -43,14 +43,5 @@ namespace PetesPettingZoo.Migrations
                 new OpenDays { Day = DateTime.Parse("10/29/17") }
                 );
         }
-
-        public class MailJet
-        {
-            SmtpClient client = new SmtpClient("in.mailjet.com ")
-            {
-                Credentials = new NetworkCredential("", ""),
-                EnableSsl = true
-            };
-        }
     }
 }

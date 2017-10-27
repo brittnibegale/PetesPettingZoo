@@ -201,25 +201,6 @@ namespace PetesPettingZoo.Models
             [JsonProperty("units")]
             public string Units { get; set; }
         }
-
-        public partial class WeatherAPI
-        {
-            public static WeatherAPI FromJson(string json) => JsonConvert.DeserializeObject<WeatherAPI>(json, Converter.Settings);
-        }
-
-        public static class Serialize
-        {
-            public static string ToJson(this WeatherAPI self) => JsonConvert.SerializeObject(self, Converter.Settings);
-        }
-
-        public class Converter
-        {
-            public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-            {
-                MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-                DateParseHandling = DateParseHandling.None,
-            };
-        }
     }
 
 
