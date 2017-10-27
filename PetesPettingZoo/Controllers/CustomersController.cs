@@ -50,18 +50,24 @@ namespace PetesPettingZoo.Controllers
     // POST: Customers/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(
-        [Bind(Include = "Id,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
-    {
-        if (ModelState.IsValid)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(
+            [Bind(Include = "Id,FirstName,LastName,Email,OpenDaysId,TicketId")] Customers customers)
         {
-            customers.Cost = customers.TicketId * 7;
-            customers.Paid = false;
-            db.Customers.Add(customers);
-            db.SaveChanges();
-            return RedirectToAction("Confirmation");//this is where we need to redirect to the confirmation email page
+            if (ModelState.IsValid)
+            {
+                customers.Cost = customers.TicketId * 7;
+                customers.Paid = false;
+                db.Customers.Add(customers);
+                db.SaveChanges();
+                return
+                    RedirectToAction("Confirmation"); //this is where we need to redirect to the confirmation email page
+            }
+
+            ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
+            ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id", customers.TicketId);
+            return View(customers);
         }
 
         public void getStaticMethod()
@@ -75,10 +81,7 @@ namespace PetesPettingZoo.Controllers
             return View();
         }
 
-        ViewBag.OpenDaysId = new SelectList(db.Days, "Id", "Id", customers.OpenDaysId);
-        ViewBag.TicketId = new SelectList(db.Tickets, "Id", "Id", customers.TicketId);
-        return View(customers);
-    }
+     
 
     // GET: Customers/Edit/5
     public ActionResult Edit(int? id)
